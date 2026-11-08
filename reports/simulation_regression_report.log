@@ -1,0 +1,17 @@
+================================================================================
+TIDE LATE-FUSION EKF ENGINE (OS0035) — RTL VERIFICATION & REGRESSION
+Generated: \2026-11-08 09:36:31 UTC\
+Process Target: SCL 180nm CMOS 1P6M (Chip OS0035)
+================================================================================
+
+Default vector file: adv_vec.txt
+
+=======================================================
+TESTBENCH REGRESSION COMPLETE
+Total commands processed: 1000
+Total mismatches / errors: 0
+Latency range (cycles)  : min=18, max=18
+Final Verdict            : ALL PASS
+=======================================================
+
+VERIFICATION SUCCESS: 0 errors detected across 1000 commands.

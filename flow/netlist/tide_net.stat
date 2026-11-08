@@ -1,0 +1,887 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.41+83 (git sha1 7045cf509, clang++ 14.0.0-1ubuntu1.1 -fPIC -Os)
+
+-- Executing script file `flow/scripts/synth_die2.ys' --
+
+1. Executing Liberty frontend: /mnt/d/Downloads/FPUIP_package/FPUIP_package/pdk/digital_cp8d/Open_Source_SCL_0.8micron_PDK_digital/open_source_scl_cp8d/open_pdks/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_core_typ.lib
+Imported 59 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: rtl/tide_late.sv
+Parsing SystemVerilog input from `rtl/tide_late.sv' to AST representation.
+Generating RTLIL representation for module `\tide_late'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \tide_late
+
+3.2. Analyzing design hierarchy..
+Top module:  \tide_late
+Removed 0 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/tide_late.sv:237$187 in module tide_late.
+Marked 3 switch rules as full_case in process $proc$rtl/tide_late.sv:229$181 in module tide_late.
+Marked 2 switch rules as full_case in process $proc$rtl/tide_late.sv:222$179 in module tide_late.
+Marked 1 switch rules as full_case in process $proc$rtl/tide_late.sv:216$178 in module tide_late.
+Removed 1 dead cases from process $proc$rtl/tide_late.sv:0$173 in module tide_late.
+Marked 3 switch rules as full_case in process $proc$rtl/tide_late.sv:0$173 in module tide_late.
+Marked 3 switch rules as full_case in process $proc$rtl/tide_late.sv:178$161 in module tide_late.
+Marked 2 switch rules as full_case in process $proc$rtl/tide_late.sv:168$155 in module tide_late.
+Marked 3 switch rules as full_case in process $proc$rtl/tide_late.sv:156$131 in module tide_late.
+Marked 1 switch rules as full_case in process $proc$rtl/tide_late.sv:0$90 in module tide_late.
+Marked 1 switch rules as full_case in process $proc$rtl/tide_late.sv:0$83 in module tide_late.
+Marked 2 switch rules as full_case in process $proc$rtl/tide_late.sv:0$81 in module tide_late.
+Removed a total of 1 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 7 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\tide_late.$proc$rtl/tide_late.sv:229$181'.
+Found async reset \rst_n in `\tide_late.$proc$rtl/tide_late.sv:222$179'.
+Found async reset \rst_n in `\tide_late.$proc$rtl/tide_late.sv:178$161'.
+Found async reset \rst_n in `\tide_late.$proc$rtl/tide_late.sv:156$131'.
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~43 debug messages>
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+     1/12: $0\c23[0:0]
+     2/12: $0\c13[0:0]
+     3/12: $0\c12[0:0]
+     4/12: $0\c03[0:0]
+     5/12: $0\c02[0:0]
+     6/12: $0\c01[0:0]
+     7/12: $0\nle_acc[2:0]
+     8/12: $0\ins_acc[2:0]
+     9/12: $0\r_flag[0:0]
+    10/12: $0\late_flag[0:0]
+    11/12: $0\inord_flag[0:0]
+    12/12: $0\dup_err[0:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:229$181'.
+     1/1: $0\step[4:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:222$179'.
+     1/1: $0\done_r[0:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:216$178'.
+     1/1: $0\cr[17:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:0$173'.
+     1/3: $3\resp_word[17:0]
+     2/3: $2\resp_word[17:0]
+     3/3: $1\resp_word[17:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:178$161'.
+     1/2: $0\par[0:0]
+     2/2: $0\ckcnt[1:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:168$155'.
+     1/2: $0\ck1[11:0]
+     2/2: $0\ck0[11:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:164$154'.
+     1/1: $0\tnow[11:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:156$131'.
+     1/6: $3$lookahead\slot_v$130[3:0]$142
+     2/6: $3$bitselwrite$pos$rtl/tide_late.sv:159$1[1:0]$141
+     3/6: $2$lookahead\slot_v$130[3:0]$140
+     4/6: $2$bitselwrite$pos$rtl/tide_late.sv:159$1[1:0]$139
+     5/6: $1$lookahead\slot_v$130[3:0]$136
+     6/6: $1$bitselwrite$pos$rtl/tide_late.sv:159$1[1:0]$135
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+     1/8: $0\s3_id[3:0]
+     2/8: $0\s2_id[3:0]
+     3/8: $0\s1_id[3:0]
+     4/8: $0\s0_id[3:0]
+     5/8: $0\s3_ts[11:0]
+     6/8: $0\s2_ts[11:0]
+     7/8: $0\s1_ts[11:0]
+     8/8: $0\s0_ts[11:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:0$90'.
+     1/1: $1\cmp_b[11:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:0$83'.
+     1/1: $1\slot_sel_b[1:0]
+Creating decoders for process `\tide_late.$proc$rtl/tide_late.sv:0$81'.
+     1/2: $2\slot_sel[1:0]
+     2/2: $1\slot_sel[1:0]
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\tide_late.\resp_word' from process `\tide_late.$proc$rtl/tide_late.sv:0$173'.
+No latch inferred for signal `\tide_late.\cmp_b' from process `\tide_late.$proc$rtl/tide_late.sv:0$90'.
+No latch inferred for signal `\tide_late.\slot_sel_b' from process `\tide_late.$proc$rtl/tide_late.sv:0$83'.
+No latch inferred for signal `\tide_late.\slot_sel' from process `\tide_late.$proc$rtl/tide_late.sv:0$81'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\tide_late.\dup_err' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$422' with positive edge clock.
+Creating register for signal `\tide_late.\inord_flag' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$423' with positive edge clock.
+Creating register for signal `\tide_late.\late_flag' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$424' with positive edge clock.
+Creating register for signal `\tide_late.\r_flag' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$425' with positive edge clock.
+Creating register for signal `\tide_late.\ins_acc' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$426' with positive edge clock.
+Creating register for signal `\tide_late.\nle_acc' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$427' with positive edge clock.
+Creating register for signal `\tide_late.\c01' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$428' with positive edge clock.
+Creating register for signal `\tide_late.\c02' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$429' with positive edge clock.
+Creating register for signal `\tide_late.\c03' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$430' with positive edge clock.
+Creating register for signal `\tide_late.\c12' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$431' with positive edge clock.
+Creating register for signal `\tide_late.\c13' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$432' with positive edge clock.
+Creating register for signal `\tide_late.\c23' using process `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+  created $dff cell `$procdff$433' with positive edge clock.
+Creating register for signal `\tide_late.\step' using process `\tide_late.$proc$rtl/tide_late.sv:229$181'.
+  created $adff cell `$procdff$434' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.\done_r' using process `\tide_late.$proc$rtl/tide_late.sv:222$179'.
+  created $adff cell `$procdff$435' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.\cr' using process `\tide_late.$proc$rtl/tide_late.sv:216$178'.
+  created $dff cell `$procdff$436' with positive edge clock.
+Creating register for signal `\tide_late.\ckcnt' using process `\tide_late.$proc$rtl/tide_late.sv:178$161'.
+  created $adff cell `$procdff$437' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.\par' using process `\tide_late.$proc$rtl/tide_late.sv:178$161'.
+  created $adff cell `$procdff$438' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.\ck0' using process `\tide_late.$proc$rtl/tide_late.sv:168$155'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `\tide_late.\ck1' using process `\tide_late.$proc$rtl/tide_late.sv:168$155'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `\tide_late.\tnow' using process `\tide_late.$proc$rtl/tide_late.sv:164$154'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `\tide_late.\slot_v' using process `\tide_late.$proc$rtl/tide_late.sv:156$131'.
+  created $adff cell `$procdff$442' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.$bitselwrite$pos$rtl/tide_late.sv:159$1' using process `\tide_late.$proc$rtl/tide_late.sv:156$131'.
+  created $adff cell `$procdff$443' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.$lookahead\slot_v$130' using process `\tide_late.$proc$rtl/tide_late.sv:156$131'.
+  created $adff cell `$procdff$444' with positive edge clock and negative level reset.
+Creating register for signal `\tide_late.\s0_ts' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `\tide_late.\s1_ts' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `\tide_late.\s2_ts' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `\tide_late.\s3_ts' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\tide_late.\s0_id' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\tide_late.\s1_id' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\tide_late.\s2_id' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\tide_late.\s3_id' using process `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+  created $dff cell `$procdff$452' with positive edge clock.
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 16 empty switches in `\tide_late.$proc$rtl/tide_late.sv:237$187'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:237$187'.
+Found and cleaned up 3 empty switches in `\tide_late.$proc$rtl/tide_late.sv:229$181'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:229$181'.
+Found and cleaned up 2 empty switches in `\tide_late.$proc$rtl/tide_late.sv:222$179'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:222$179'.
+Found and cleaned up 2 empty switches in `\tide_late.$proc$rtl/tide_late.sv:216$178'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:216$178'.
+Found and cleaned up 3 empty switches in `\tide_late.$proc$rtl/tide_late.sv:0$173'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:0$173'.
+Found and cleaned up 4 empty switches in `\tide_late.$proc$rtl/tide_late.sv:178$161'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:178$161'.
+Found and cleaned up 3 empty switches in `\tide_late.$proc$rtl/tide_late.sv:168$155'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:168$155'.
+Found and cleaned up 1 empty switch in `\tide_late.$proc$rtl/tide_late.sv:164$154'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:164$154'.
+Found and cleaned up 2 empty switches in `\tide_late.$proc$rtl/tide_late.sv:156$131'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:156$131'.
+Found and cleaned up 4 empty switches in `\tide_late.$proc$rtl/tide_late.sv:148$121'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:148$121'.
+Found and cleaned up 1 empty switch in `\tide_late.$proc$rtl/tide_late.sv:0$90'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:0$90'.
+Found and cleaned up 1 empty switch in `\tide_late.$proc$rtl/tide_late.sv:0$83'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:0$83'.
+Found and cleaned up 2 empty switches in `\tide_late.$proc$rtl/tide_late.sv:0$81'.
+Removing empty process `tide_late.$proc$rtl/tide_late.sv:0$81'.
+Cleaned up 44 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+<suppressed ~19 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+<suppressed ~135 debug messages>
+Removed a total of 45 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$386.
+    dead port 2/2 on $mux $procmux$386.
+    dead port 1/2 on $mux $procmux$380.
+    dead port 2/2 on $mux $procmux$380.
+    dead port 1/2 on $mux $procmux$377.
+    dead port 2/2 on $mux $procmux$377.
+    dead port 1/2 on $mux $procmux$374.
+    dead port 2/2 on $mux $procmux$328.
+    dead port 2/2 on $mux $procmux$323.
+    dead port 2/2 on $mux $procmux$321.
+    dead port 1/2 on $mux $procmux$417.
+Removed 11 multiplexer ports.
+<suppressed ~39 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$451 ($dff) from module tide_late (D = \cr [3:0], Q = \s2_id).
+Adding SRST signal on $procdff$422 ($dff) from module tide_late (D = $procmux$294_Y, Q = \dup_err, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$454 ($sdff) from module tide_late (D = $procmux$292_Y, Q = \dup_err).
+Adding SRST signal on $procdff$423 ($dff) from module tide_late (D = $procmux$283_Y, Q = \inord_flag, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$456 ($sdff) from module tide_late (D = $not$rtl/tide_late.sv:251$196_Y, Q = \inord_flag).
+Adding SRST signal on $procdff$424 ($dff) from module tide_late (D = $procmux$276_Y, Q = \late_flag, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$460 ($sdff) from module tide_late (D = $not$rtl/tide_late.sv:133$94_Y, Q = \late_flag).
+Adding SRST signal on $procdff$425 ($dff) from module tide_late (D = $procmux$269_Y, Q = \r_flag, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$464 ($sdff) from module tide_late (D = $logic_and$rtl/tide_late.sv:253$200_Y, Q = \r_flag).
+Adding SRST signal on $procdff$426 ($dff) from module tide_late (D = $procmux$262_Y, Q = \ins_acc, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$468 ($sdff) from module tide_late (D = $add$rtl/tide_late.sv:141$113_Y, Q = \ins_acc).
+Adding SRST signal on $procdff$427 ($dff) from module tide_late (D = $procmux$255_Y, Q = \nle_acc, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$472 ($sdff) from module tide_late (D = $add$rtl/tide_late.sv:141$113_Y, Q = \nle_acc).
+Adding EN signal on $procdff$428 ($dff) from module tide_late (D = $lt$rtl/tide_late.sv:130$91_Y, Q = \c01).
+Adding EN signal on $procdff$429 ($dff) from module tide_late (D = $lt$rtl/tide_late.sv:130$91_Y, Q = \c02).
+Adding EN signal on $procdff$430 ($dff) from module tide_late (D = $lt$rtl/tide_late.sv:130$91_Y, Q = \c03).
+Adding EN signal on $procdff$431 ($dff) from module tide_late (D = $lt$rtl/tide_late.sv:130$91_Y, Q = \c12).
+Adding EN signal on $procdff$432 ($dff) from module tide_late (D = $lt$rtl/tide_late.sv:130$91_Y, Q = \c13).
+Adding EN signal on $procdff$433 ($dff) from module tide_late (D = $lt$rtl/tide_late.sv:130$91_Y, Q = \c23).
+Adding EN signal on $procdff$434 ($adff) from module tide_late (D = $procmux$305_Y, Q = \step).
+Adding EN signal on $procdff$452 ($dff) from module tide_late (D = \cr [3:0], Q = \s3_id).
+Adding EN signal on $procdff$435 ($adff) from module tide_late (D = $procmux$310_Y, Q = \done_r).
+Adding EN signal on $procdff$436 ($dff) from module tide_late (D = $procmux$315_Y, Q = \cr).
+Adding EN signal on $procdff$437 ($adff) from module tide_late (D = $procmux$351_Y, Q = \ckcnt).
+Adding EN signal on $procdff$438 ($adff) from module tide_late (D = $procmux$341_Y, Q = \par).
+Adding EN signal on $procdff$439 ($dff) from module tide_late (D = $procmux$366_Y, Q = \ck0).
+Adding SRST signal on $procdff$440 ($dff) from module tide_late (D = $procmux$355_Y, Q = \ck1, rval = 12'000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$537 ($sdff) from module tide_late (D = \cr [15:4], Q = \ck1).
+Adding EN signal on $procdff$441 ($dff) from module tide_late (D = \cr [15:4], Q = \tnow).
+Adding EN signal on $procdff$442 ($adff) from module tide_late (D = $procmux$383_Y, Q = \slot_v).
+Adding EN signal on $procdff$445 ($dff) from module tide_late (D = \cr [15:4], Q = \s0_ts).
+Adding EN signal on $procdff$446 ($dff) from module tide_late (D = \cr [15:4], Q = \s1_ts).
+Adding EN signal on $procdff$447 ($dff) from module tide_late (D = \cr [15:4], Q = \s2_ts).
+Adding EN signal on $procdff$448 ($dff) from module tide_late (D = \cr [15:4], Q = \s3_ts).
+Adding EN signal on $procdff$449 ($dff) from module tide_late (D = \cr [3:0], Q = \s0_id).
+Adding EN signal on $procdff$450 ($dff) from module tide_late (D = \cr [3:0], Q = \s1_id).
+Setting constant 1-bit at position 0 on $procdff$444 ($adff) from module tide_late.
+Setting constant 1-bit at position 1 on $procdff$444 ($adff) from module tide_late.
+Setting constant 1-bit at position 2 on $procdff$444 ($adff) from module tide_late.
+Setting constant 1-bit at position 3 on $procdff$444 ($adff) from module tide_late.
+Setting constant 1-bit at position 0 on $procdff$443 ($adff) from module tide_late.
+Setting constant 1-bit at position 1 on $procdff$443 ($adff) from module tide_late.
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+Removed 51 unused cells and 262 unused wires.
+<suppressed ~52 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+<suppressed ~7 debug messages>
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+<suppressed ~24 debug messages>
+Removed a total of 8 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~1 debug messages>
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+5.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+5.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+5.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+5.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+5.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+5.23. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing FSM pass (extract and optimize FSM).
+
+6.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+6.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+7.9. Finished OPT passes. (There is nothing left to do.)
+
+8. Executing MEMORY pass.
+
+8.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+8.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+8.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+8.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+8.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `$auto$proc_rom.cc:155:do_switch$208'[0] in module `\tide_late': no output FF found.
+Checking read port address `$auto$proc_rom.cc:155:do_switch$208'[0] in module `\tide_late': address FF has async set and/or reset, not supported.
+
+8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+8.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+8.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+8.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+8.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $auto$proc_rom.cc:155:do_switch$208 in module \tide_late:
+  created 32 $dff cells and 0 static cells of width 2.
+  read interface: 0 $dff and 31 $mux cells.
+  write interface: 0 write mux blocks.
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+<suppressed ~15 debug messages>
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+Removed 0 unused cells and 50 unused wires.
+<suppressed ~1 debug messages>
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+9.16. Finished OPT passes. (There is nothing left to do.)
+
+10. Executing TECHMAP pass (map to technology primitives).
+
+10.1. Executing Verilog-2005 frontend: /home/ganeshkumara/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/ganeshkumara/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+10.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_and.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_bool.
+Running "alumacc" on wrapper $extern:wrap:$le:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$le:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$le:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $ne.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=12:B_SIGNED=0:B_WIDTH=12:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=12:B_SIGNED=0:B_WIDTH=12:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=12:B_SIGNED=0:B_WIDTH=12:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$constmap:1ef046be63c9541309f2f19c4ef998a798f64488$paramod$7fe1424d9d826b3a6286885bc851fafa5143be2b\_90_shift_shiftx for cells of type $shiftx.
+Using extmapper simplemap for cells of type $logic_or.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$neg:A_SIGNED=1:A_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:A_SIGNED=1:A_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:A_SIGNED=1:A_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$constmap:587bfd344aba6fff5ae2fc198a50240a44929441$paramod$64b19f47ed5f126636dbd98d727ec46a7ec08d71\_90_shift_shiftx for cells of type $shift.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$54ee0403fd942f13ef22436b0e684794ed206021\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$e2165ec90b78aaca74deda7ad41ccfe473993585\_90_pmux for cells of type $pmux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $adffe.
+Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_90_alu for cells of type $alu.
+Using template $paramod$b18e16801adf491a64caa0542270798e5d4ac6b6\_90_alu for cells of type $alu.
+Using template $paramod$ee3d784672cdb1cb32d9a801a3af776716f16b74\_90_alu for cells of type $alu.
+Using template $paramod$7af24cf7f572852703f08ef7a936c59efa2c57af\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001100 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1653 debug messages>
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+<suppressed ~763 debug messages>
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+<suppressed ~384 debug messages>
+Removed a total of 128 cells.
+
+11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+Removed 90 unused cells and 1123 unused wires.
+<suppressed ~91 debug messages>
+
+11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+11.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+11.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+11.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+11.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+11.16. Finished OPT passes. (There is nothing left to do.)
+
+12. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFL11 (noninv, pins=4, area=5.33) is a direct match for cell type $_DFF_P_.
+  cell DFCL11 (noninv, pins=5, area=7.33) is a direct match for cell type $_DFF_PN0_.
+  cell DFPR11 (noninv, pins=5, area=7.33) is a direct match for cell type $_DFF_PN1_.
+  cell DFPC11 (noninv, pins=6, area=8.33) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \DFFL11 _DFF_P_ (.C( C), .D( D), .Q( Q), .QB(~Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \DFCL11 _DFF_PN0_ (.C( C), .CLR( R), .D( D), .Q( Q), .QB(~Q));
+    \DFPR11 _DFF_PN1_ (.C( C), .D( D), .PRB( R), .Q( Q), .QB(~Q));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFPC11 _DFFSR_PNN_ (.C( C), .CLR( R), .D( D), .PRB( S), .Q( Q), .QB(~Q));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+12.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\tide_late':
+  mapped 13 $_DFF_PN0_ cells to \DFCL11 cells.
+  mapped 134 $_DFF_P_ cells to \DFFL11 cells.
+
+13. Executing ABC pass (technology mapping using ABC).
+
+13.1. Extracting gate netlist of module `\tide_late' to `<abc-temp-dir>/input.blif'..
+Replacing 76 occurrences of constant undef bits with constant zero bits
+Extracted 1140 gates and 1316 wires to a netlist network with 173 inputs and 147 outputs.
+
+13.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /mnt/d/Downloads/FPUIP_package/FPUIP_package/pdk/digital_cp8d/Open_Source_SCL_0.8micron_PDK_digital/open_source_scl_cp8d/open_pdks/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_core_typ.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.04 sec
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TRAN00".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV01".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV00".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF01".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFCL11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTPR11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFL11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTPC11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFPR11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTCH11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LTCL11".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFPC11".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF00".
+ABC: Library "cp8d_core_typ" from "/mnt/d/Downloads/FPUIP_package/FPUIP_package/pdk/digital_cp8d/Open_Source_SCL_0.8micron_PDK_digital/open_source_scl_cp8d/open_pdks/scl_cp8d/libs.ref/digital_cp8d/lib/cp8d_core_typ.lib" has 46 cells (13 skipped: 8 seq; 5 tri-state; 0 no func; 0 dont_use).  Time =     0.06 sec
+ABC: Memory =    2.96 MB. Time =     0.06 sec
+ABC: Gates with more than 2 outputs are not supported.
+ABC: Gates with more than 2 outputs are not supported.
+ABC: Warning: Detected 6 multi-output gates (for example, "ADR100").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+13.1.2. Re-integrating ABC results.
+ABC RESULTS:            AND500 cells:        1
+ABC RESULTS:            OR4100 cells:        2
+ABC RESULTS:            NND500 cells:        3
+ABC RESULTS:            NOR300 cells:       11
+ABC RESULTS:            AND400 cells:        6
+ABC RESULTS:            XOR300 cells:        4
+ABC RESULTS:            NOR400 cells:        5
+ABC RESULTS:            MX4100 cells:       15
+ABC RESULTS:            AND300 cells:        9
+ABC RESULTS:            XNR200 cells:       11
+ABC RESULTS:            OR3100 cells:        6
+ABC RESULTS:            NND400 cells:       25
+ABC RESULTS:            NND300 cells:       25
+ABC RESULTS:            AOI400 cells:       44
+ABC RESULTS:            AND200 cells:       18
+ABC RESULTS:            OAI400 cells:        7
+ABC RESULTS:            ORND00 cells:       52
+ABC RESULTS:            ADNR00 cells:       31
+ABC RESULTS:            OR2100 cells:       23
+ABC RESULTS:            INVR00 cells:      111
+ABC RESULTS:            NND200 cells:      140
+ABC RESULTS:            MX2100 cells:      143
+ABC RESULTS:            NOR200 cells:       90
+ABC RESULTS:        internal signals:      996
+ABC RESULTS:           input signals:      173
+ABC RESULTS:          output signals:      147
+Removing temp directory.
+
+14. Executing OPT pass (performing simple optimizations).
+
+14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+Removed 0 unused cells and 796 unused wires.
+<suppressed ~36 debug messages>
+
+14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tide_late..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tide_late.
+Performed a total of 0 changes.
+
+14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tide_late'.
+Removed a total of 0 cells.
+
+14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+
+14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tide_late.
+
+14.16. Finished OPT passes. (There is nothing left to do.)
+
+15. Executing SETUNDEF pass (replace undef values with defined constants).
+
+16. Executing HILOMAP pass (mapping to constant drivers).
+
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tide_late..
+Removed 10 unused cells and 10 unused wires.
+<suppressed ~11 debug messages>
+
+18. Executing Verilog backend.
+Dumping module `\tide_late'.
+
+19. Printing statistics.
+
+=== tide_late ===
+
+   Number of wires:                963
+   Number of wire bits:           1125
+   Number of public wires:          40
+   Number of public wire bits:     173
+   Number of ports:                  7
+   Number of port bits:              7
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                929
+     ADNR00                         31
+     AND200                         18
+     AND300                          9
+     AND400                          6
+     AND500                          1
+     AOI400                         44
+     DFCL11                         13
+     DFFL11                        134
+     INVR00                        111
+     MX2100                        143
+     MX4100                         15
+     NND200                        140
+     NND300                         25
+     NND400                         25
+     NND500                          3
+     NOR200                         90
+     NOR300                         11
+     NOR400                          5
+     OAI400                          7
+     OR2100                         23
+     OR3100                          6
+     OR4100                          2
+     ORND00                         52
+     XNR200                         11
+     XOR300                          4
+
+   Chip area for module '\tide_late': 2410.480000
+     of which used for sequential elements: 809.510000 (33.58%)
+
+End of script. Logfile hash: 786ae45e8b, CPU: user 0.84s system 0.11s, MEM: 26.29 MB peak
+Yosys 0.41+83 (git sha1 7045cf509, clang++ 14.0.0-1ubuntu1.1 -fPIC -Os)
+Time spent: 36% 1x abc (0 sec), 13% 26x opt_expr (0 sec), ...
